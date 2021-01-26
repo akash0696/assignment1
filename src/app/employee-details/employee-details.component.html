@@ -24,11 +24,11 @@
       <th>Email Address</th>
       <th>Departments</th>
     </tr>
-    <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-      <td>20</td>
+    <tr *ngFor= "let employee of employees">
+      <td>{{employee.name}}</td>
+      <td>{{employee.age}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.departments.length}}</td>
     </tr>
   </table>
 </form>
