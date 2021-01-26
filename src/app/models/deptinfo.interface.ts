@@ -1,4 +1,4 @@
-export interface DeptInfo{
+export interface IEmployee{
   name: string;
   age: number;
   email: string;
