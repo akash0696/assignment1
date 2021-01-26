@@ -1,13 +1,13 @@
 <form>
   <h2>Employee Details(total_no_of_employees)</h2>
   <hr>
-  <select>
+  <select class="dropdown-style">
     <option value="department">Department</option>
     <option value="Computer">Computer</option>
     <option value="physics">Physics</option>
     <option value="chemistry">Chemistry</option>
   </select>
-  <input type="text" placeholder="Name/Email">
+  <input classs="search-style" type="text" placeholder="Name/Email">
   <button>Search</button>
   <button>Reset or Reload Data</button>
   <select>
@@ -17,18 +17,18 @@
     <option value="sort_email">email</option>
   </select>
   <hr>
-  <table border="3" style="width:100%" id="border-collapse">
-    <tr>
-      <th class="table_border">Emp Name</th>
-      <th class="table_border">Age</th>
-      <th class="table_border">Email Address</th>
-      <th class="table_border">Departments</th>
+  <table border="1" id="border-collapse">
+    <tr class="text_align">
+      <th>Emp Name</th>
+      <th>Age</th>
+      <th>Email Address</th>
+      <th>Departments</th>
     </tr>
     <tr>
-      <td class="table_border">Jill</td>
-      <td class="table_border">Smith</td>
-      <td class="table_border">50</td>
-      <td class="table_border">20</td>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+      <td>20</td>
     </tr>
   </table>
 </form>
