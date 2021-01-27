@@ -1,20 +1,15 @@
 <form>
   <h2>Employee Details(total_no_of_employees)</h2>
   <hr>
-  <select class="dropdown-style">
+  <select class="dropdown-style" [(ngModel)]= "DepartmentName" (ngModelChange)= "fetchEmployee(DepartmentName)">
     <option value="department" selected>Department</option>
-    <option value="Computer">Computer</option>
-    <option value="physics">Physics</option>
-    <option value="chemistry">Chemistry</option>
+    <option *ngFor= "let dept of DepartmentName ">{{dept}}</option>
   </select>
   <input classs="search-style" type="text" placeholder="Name/Email">
   <button>Search</button>
   <button>Reset or Reload Data</button>
-  <select>
-    <option value="asc">name(a-z)</option>
-    <option value="desc">name(z-a)</option>
-    <option value="sort_age">age</option>
-    <option value="sort_email">email</option>
+  <select [(ngModel)]= "sortByselected" name="sortselect" (ngModelChange)="onDropdownSelected($event)">
+    <option *ngFor = "let sort of SortBy" [value]="sort.id">{{sort.name}}</option>
   </select>
   <hr>
   <table border="1" id="border-collapse">
