@@ -21,10 +21,8 @@ export class EmployeeDetailsComponent implements OnInit {
   //filter employee details on departments and return employeeDetails object
   public DepartmentName:string[] = ['Computer','Physics','Chemistry'];
   sortByselected:string;
-
-
-
   selectedDepartment: string = '';
+  selectedSort:string;
 
 
 
@@ -77,6 +75,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
   }
 
+//selecting departments from dropdown and showing related datas
   selectChangeHandler(event: any){
     this.selectedDepartment = event.target.value;
     this.allEmployees= [];
@@ -90,7 +89,7 @@ export class EmployeeDetailsComponent implements OnInit {
       }
     }
   }
-  }
+}
 
 //searching for name and email
 Search(){
@@ -116,8 +115,38 @@ Reset(){
   // console.log(this.employees);
   this.allEmployees= this.employees;
   // return this.allEmployees;
+}
+
+//arranging in sorted format
+onDropdownSelected(event:any){
+  this.selectedSort = event.target.value;
+  this.allEmployees= [...this.employees];
+  if(this.selectedSort === "name(a-z)"){
+    this.allEmployees.sort((emp1,emp2) => {
+      return emp1.name.localeCompare(emp2.name)
+    } );
+  }
+  else if(this.selectedSort === "name(z-a)"){
+    this.allEmployees.sort((emp1,emp2) => {
+      return emp2.name.localeCompare(emp1.name)
+
+    } );
+  }
+  else if(this.selectedSort === "age"){
+    this.allEmployees.sort((emp1,emp2) => {
+      return emp1.age-emp2.age;
+
+    } );
+  }
+  else{
+    this.allEmployees.sort((emp1,emp2) => {
+      return emp1.email.localeCompare(emp2.email)
+    } );
+
+  }
 
 }
+
 
 
 }
