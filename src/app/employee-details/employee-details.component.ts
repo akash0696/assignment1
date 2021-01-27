@@ -92,7 +92,7 @@ export class EmployeeDetailsComponent implements OnInit {
   }
   }
 
-
+//searching for name and email
 Search(){
   if(this.empField.includes("@")){
     this.allEmployees= this.allEmployees.filter(res => {
@@ -108,6 +108,15 @@ Search(){
       this.ErrorMessage = "no employee found";
      }
   }
+}
+
+//Reset the employee details
+Reset(){
+  this.ErrorMessage= null;
+  // console.log(this.employees);
+  this.allEmployees= this.employees;
+  // return this.allEmployees;
+
 }
 
 

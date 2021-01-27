@@ -11,7 +11,7 @@
 
   <button type="button" (click)="Search()">Search</button>
 
-  <button type="button">Reset or Reload Data</button>
+  <button type="button" (click)="Reset()">Reset or Reload Data</button>
 
   <select [(ngModel)]= "sortByselected" name="sortselect">
     <option *ngFor = "let sort of SortBy" [value]="sort.name">{{sort.name}}</option>
