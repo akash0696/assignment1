@@ -7,7 +7,7 @@
     <option *ngFor= "let dept of DepartmentName ">{{dept}}</option>
   </select>
 
-  <input classs="search-style" name="empName" [(ngModel)]="empField"  type="text" placeholder="Name">
+  <input classs="search-style" name="empField" [(ngModel)]="empField"  type="text" placeholder="Name/Email">
 
   <button type="button" (click)="Search()">Search</button>
 
@@ -30,7 +30,9 @@
       <td>{{employee.name}}</td>
       <td>{{employee.age}}</td>
       <td>{{employee.email}}</td>
-      <td>{{employee.departments.length}}</td>
+      <td class="parentcell">{{employee.departments.length}}
+        <span class="tooltip">1,2</span>
+      </td>
     </tr>
   </table>
   <p *ngIf= "ErrorMessage !== null">{{ErrorMessage}}</p>

@@ -91,32 +91,6 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 }
 
-//searching for name and email
-Search(){
-  if(this.empField.includes("@")){
-    this.allEmployees= this.allEmployees.filter(res => {
-      return res.email.toLocaleLowerCase().match(this.empField.toLocaleLowerCase());
-    });
-  }
-  else{
-     this.allEmployees= this.allEmployees.filter(res => {
-        return res.name.toLocaleLowerCase().match(this.empField.toLocaleLowerCase());
-     });
-     if(this.allEmployees.length===0)
-     {
-      this.ErrorMessage = "no employee found";
-     }
-  }
-}
-
-//Reset the employee details
-Reset(){
-  this.ErrorMessage= null;
-  // console.log(this.employees);
-  this.allEmployees= this.employees;
-  // return this.allEmployees;
-}
-
 //arranging in sorted format
 onDropdownSelected(event:any){
   this.selectedSort = event.target.value;
@@ -144,9 +118,32 @@ onDropdownSelected(event:any){
     } );
 
   }
-
 }
 
+//searching for name and email
+Search(){
+  if(this.empField.includes("@")){
+    this.allEmployees= this.allEmployees.filter(res => {
+      return res.email.toLocaleLowerCase().match(this.empField.toLocaleLowerCase());
+    });
+  }
+  else{
+     this.allEmployees= this.allEmployees.filter(res => {
+        return res.name.toLocaleLowerCase().match(this.empField.toLocaleLowerCase());
+     });
+     if(this.allEmployees.length===0)
+     {
+      this.ErrorMessage = "no employee found";
+     }
+  }
+}
 
+//Reset the employee details
+Reset(){
+  this.ErrorMessage= null;
+  // console.log(this.employees);
+  this.allEmployees= this.employees;
+  // return this.allEmployees;
+}
 
 }
