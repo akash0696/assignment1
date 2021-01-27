@@ -7,19 +7,19 @@
     <option *ngFor= "let dept of DepartmentName ">{{dept}}</option>
   </select>
 
-  <input classs="search-style"   type="text" placeholder="Name/Email">
+  <input classs="search-style" name="empName" [(ngModel)]="empField"  type="text" placeholder="Name">
 
-  <button type="button">Search</button>
+  <button type="button" (click)="Search()">Search</button>
 
   <button type="button">Reset or Reload Data</button>
 
-  <select [(ngModel)]= "sortByselected" name="sortselect" >
+  <select [(ngModel)]= "sortByselected" name="sortselect">
     <option *ngFor = "let sort of SortBy" [value]="sort.name">{{sort.name}}</option>
   </select>
 
   <hr>
 
-  <table border="1" id="border-collapse">
+  <table border="1" id="border-collapse" *ngIf= "ErrorMessage === null">
     <tr class="text_align">
       <th>Emp Name</th>
       <th>Age</th>
@@ -33,5 +33,5 @@
       <td>{{employee.departments.length}}</td>
     </tr>
   </table>
-
+  <p *ngIf= "ErrorMessage !== null">{{ErrorMessage}}</p>
 </form>

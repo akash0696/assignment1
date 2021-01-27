@@ -12,8 +12,8 @@ export class EmployeeDetailsComponent implements OnInit {
   SortBy:any;
   employees: IEmployee[];
   allEmployees: IEmployee[];
-
-
+  empField:string;
+  ErrorMessage:string= null;
 
   //creating an object for storing filter data and bind to html table
   public EmployeeDetails:object = [];
@@ -21,6 +21,7 @@ export class EmployeeDetailsComponent implements OnInit {
   //filter employee details on departments and return employeeDetails object
   public DepartmentName:string[] = ['Computer','Physics','Chemistry'];
   sortByselected:string;
+
 
 
   selectedDepartment: string = '';
@@ -90,4 +91,24 @@ export class EmployeeDetailsComponent implements OnInit {
     }
   }
   }
+
+
+Search(){
+  if(this.empField.includes("@")){
+    this.allEmployees= this.allEmployees.filter(res => {
+      return res.email.toLocaleLowerCase().match(this.empField.toLocaleLowerCase());
+    });
+  }
+  else{
+     this.allEmployees= this.allEmployees.filter(res => {
+        return res.name.toLocaleLowerCase().match(this.empField.toLocaleLowerCase());
+     });
+     if(this.allEmployees.length===0)
+     {
+      this.ErrorMessage = "no employee found";
+     }
+  }
+}
+
+
 }
