@@ -3,7 +3,8 @@
   width: 10%;
 }
 .search-style{
-  margin: 2px;
+  margin: 8px;
+  width: 150px;
 }
 #border-collapse{
   border-collapse: collapse;
@@ -12,6 +13,9 @@
 }
 .text_align{
   text-align: left;
+}
+.dropdown-style1{
+  float: right;
 }
 .parentcell{
   position: relative;
@@ -24,8 +28,8 @@
   border: 1px solid green;
   padding: 3px;
   color: green;
-  top: 50px;
-  left: 50px;
+  top: 100px;
+  left: 100px;
 }
 .parentCell:hover span.tooltip{
   display:block;

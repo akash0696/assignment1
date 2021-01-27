@@ -72,6 +72,9 @@ export class EmployeeDetailsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.allEmployees.sort((emp1,emp2) => {
+      return emp1.name.localeCompare(emp2.name)
+    } );
 
   }
 
@@ -94,7 +97,6 @@ export class EmployeeDetailsComponent implements OnInit {
 //arranging in sorted format
 onDropdownSelected(event:any){
   this.selectedSort = event.target.value;
-  this.allEmployees= [...this.employees];
   if(this.selectedSort === "name(a-z)"){
     this.allEmployees.sort((emp1,emp2) => {
       return emp1.name.localeCompare(emp2.name)

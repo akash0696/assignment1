@@ -7,13 +7,13 @@
     <option *ngFor= "let dept of DepartmentName ">{{dept}}</option>
   </select>
 
-  <input classs="search-style" name="empField" [(ngModel)]="empField"  type="text" placeholder="Name/Email">
+  <input class="search-style" name="empField" [(ngModel)]="empField"  type="text" placeholder="Name/Email">
 
-  <button type="button" (click)="Search()">Search</button>
+  <button class="search-style" type="button" (click)="Search()">Search</button>
 
-  <button type="button" (click)="Reset()">Reset or Reload Data</button>
+  <button class="search-style" type="button" (click)="Reset()">Reset or Reload Data</button>
 
-  <select [(ngModel)]= "sortByselected" name="sortselect" (change)="onDropdownSelected($event)">
+  <select class="dropdown-style1" [(ngModel)]= "sortByselected" name="sortselect" (change)="onDropdownSelected($event)">
     <option *ngFor = "let sort of SortBy" [value]="sort.name">{{sort.name}}</option>
   </select>
 
@@ -31,7 +31,7 @@
       <td>{{employee.age}}</td>
       <td>{{employee.email}}</td>
       <td class="parentcell">{{employee.departments.length}}
-        <span class="tooltip">1,2</span>
+        <span class="tooltip">2</span>
       </td>
     </tr>
   </table>
