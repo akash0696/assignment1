@@ -13,18 +13,24 @@ export class EmployeeDetailsComponent implements OnInit {
   employees: IEmployee[];
   allEmployees: IEmployee[];
 
+
+
   //creating an object for storing filter data and bind to html table
   public EmployeeDetails:object = [];
 
   //filter employee details on departments and return employeeDetails object
   public DepartmentName:string[] = ['Computer','Physics','Chemistry'];
-  sortByselected:number;
-  modifiedTable:string;
+  sortByselected:string;
+
+
+  selectedDepartment: string = '';
+
 
 
   constructor() {
+
     this.SortBy = [{id:1,name:'name(a-z)'},{id:2,name:'name(z-a)'},{id:3,name:'age'},{id:4,name:'email'}];
-    this.sortByselected=1;
+    this.sortByselected= this.SortBy[0].name;
     this.employees = [
       {
         name: "Employee One",
@@ -70,20 +76,18 @@ export class EmployeeDetailsComponent implements OnInit {
 
   }
 
-  fetchEmployee(department: string[]){
-    let obj = this.allEmployees.filter(m => m.departments == department);
-    this.EmployeeDetails =obj;
-    console.log(this.EmployeeDetails);
-    return this.EmployeeDetails;
+  selectChangeHandler(event: any){
+    this.selectedDepartment = event.target.value;
+    this.allEmployees= [];
+    if(this.selectedDepartment === "department"){
+      this.allEmployees = this.employees;
+      return;
+    }else{
+    for(let i=0; i< this.employees.length;i++){
+      if(this.employees[i].departments.includes(this.selectedDepartment)){
+        this.allEmployees.push(this.employees[i]);
+      }
+    }
   }
-
-
-  onDropdownSelected(val:any){
-    this.customSort(val);
   }
-
-  customSort(val:any){
-    this.modifiedTable = "the value" + val +"was selected from dropdown";
-  }
-
 }

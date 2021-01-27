@@ -1,17 +1,24 @@
 <form>
-  <h2>Employee Details(total_no_of_employees)</h2>
+  <h2>Employee Details({{this.allEmployees.length}})</h2>
   <hr>
-  <select class="dropdown-style" [(ngModel)]= "DepartmentName" (ngModelChange)= "fetchEmployee(DepartmentName)">
+
+  <select class="dropdown-style" [(ngModel)]= "DepartmentName" (change)= "selectChangeHandler($event)">
     <option value="department" selected>Department</option>
     <option *ngFor= "let dept of DepartmentName ">{{dept}}</option>
   </select>
-  <input classs="search-style" type="text" placeholder="Name/Email">
-  <button>Search</button>
-  <button>Reset or Reload Data</button>
-  <select [(ngModel)]= "sortByselected" name="sortselect" (ngModelChange)="onDropdownSelected($event)">
-    <option *ngFor = "let sort of SortBy" [value]="sort.id">{{sort.name}}</option>
+
+  <input classs="search-style"   type="text" placeholder="Name/Email">
+
+  <button type="button">Search</button>
+
+  <button type="button">Reset or Reload Data</button>
+
+  <select [(ngModel)]= "sortByselected" name="sortselect" >
+    <option *ngFor = "let sort of SortBy" [value]="sort.name">{{sort.name}}</option>
   </select>
+
   <hr>
+
   <table border="1" id="border-collapse">
     <tr class="text_align">
       <th>Emp Name</th>
@@ -19,11 +26,12 @@
       <th>Email Address</th>
       <th>Departments</th>
     </tr>
-    <tr *ngFor= "let employee of employees">
+    <tr *ngFor= "let employee of allEmployees">
       <td>{{employee.name}}</td>
       <td>{{employee.age}}</td>
       <td>{{employee.email}}</td>
       <td>{{employee.departments.length}}</td>
     </tr>
   </table>
+
 </form>
