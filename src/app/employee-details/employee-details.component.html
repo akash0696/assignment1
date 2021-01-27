@@ -2,6 +2,7 @@
   <h2>Employee Details({{this.allEmployees.length}})</h2>
   <hr>
 
+
   <select class="dropdown-style" [(ngModel)]= "DepartmentName" (change)= "selectChangeHandler($event)">
     <option value="department" selected>Department</option>
     <option *ngFor= "let dept of DepartmentName ">{{dept}}</option>
@@ -13,9 +14,12 @@
 
   <button class="search-style" type="button" (click)="Reset()">Reset or Reload Data</button>
 
-  <select class="dropdown-style1" [(ngModel)]= "sortByselected" name="sortselect" (change)="onDropdownSelected($event)">
+
+
+  <select class="dropdown-style1 dropdown-style" [(ngModel)]= "sortByselected" name="sortselect" (change)="onDropdownSelected($event)">
     <option *ngFor = "let sort of SortBy" [value]="sort.name">{{sort.name}}</option>
   </select>
+
 
   <hr>
 
@@ -30,8 +34,9 @@
       <td>{{employee.name}}</td>
       <td>{{employee.age}}</td>
       <td>{{employee.email}}</td>
-      <td class="parentcell">{{employee.departments.length}}
-        <span class="tooltip">2</span>
+      <td><div class="tooltip">{{employee.departments.length}}
+  <span class="tooltiptext">{{employee.departments}}</span>
+</div>
       </td>
     </tr>
   </table>

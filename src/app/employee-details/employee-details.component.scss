@@ -1,10 +1,12 @@
+
 .dropdown-style{
   border: 2px solid black;
   width: 10%;
 }
 .search-style{
-  margin: 8px;
-  width: 150px;
+  margin: 6px;
+  width: 11%;
+  border: 2px solid black;
 }
 #border-collapse{
   border-collapse: collapse;
@@ -16,21 +18,31 @@
 }
 .dropdown-style1{
   float: right;
+  margin: 8px;
 }
-.parentcell{
+
+.tooltip {
   position: relative;
+  display: inline-block;
 }
-.tooltip{
-  display: none;
-  position: absolute;
-  z-index: 100;
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
   background-color: white;
-  border: 1px solid green;
-  padding: 3px;
-  color: green;
-  top: 100px;
-  left: 100px;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 15px;
+  position: absolute;
+  z-index: 1;
 }
-.parentCell:hover span.tooltip{
-  display:block;
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
+
